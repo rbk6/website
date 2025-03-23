@@ -1,0 +1,25 @@
+name: deployment trigger
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  trigger-pipeline:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger website deployment
+        run: |
+          RESPONSE=$(curl -s -w "%{http_code}" -o response.json -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" \
+            -d '{"event_type": "deploy", "client_payload": {"ref": "master"}}' \
+            https://api.github.com/repos/rbk6/pipeline/dispatches)
+
+          HTTP_STATUS=${RESPONSE: -3}
+          if [ "$HTTP_STATUS" -ne 204 ]; then
+            echo "Failed to trigger deployment pipeline. Response:"
+            cat response.json
+            exit 1
+          fi

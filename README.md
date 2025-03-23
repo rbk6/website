@@ -18,3 +18,7 @@ to run locally, install the dependencies and start the app using the following c
 
 - install dependencies: `npm install`
 - run locally: `npm run dev`
+
+## CI/CD
+
+this project contains a workflow that points to my [pipeline repository](https://github.com/rbk6/pipeline) and triggers an automated deployment to the virtual private server hosting [my website](https://rbk6.dev). for more context and implementation details, feel free to check that out.
