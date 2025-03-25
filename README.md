@@ -6,9 +6,14 @@
 
 to ensure the experience stays consistent with the website in production, it is recommended to setup docker before proceeding with the following steps. once docker is setup:
 
-- build the container: `docker build -f Dockerfile -t <container-name> --target development .`
-- run from the container: `docker run -p 3000:3000 <container-name>`
-  - note: there will be a local and network option shown, but only the local option will work. this is due to the `host` field within the `vite.config` file, which adds the network link to the output.
+- set desired container name: `export CONTAINER_NAME=<container-name>`
+- build and start the container (development mode):  
+  `docker build -f Dockerfile -t $CONTAINER_NAME --target development . && docker start $CONTAINER_NAME`
+- run tests:  
+  `docker build -f Dockerfile -t $CONTAINER_NAME --target test . && docker run $CONTAINER_NAME`
+- remove all containers/images (cleanup): `docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -aq)`
+
+note: there will be a local and network option shown, but only the local option will work. this is due to the `host` field within the `vite.config` file, which adds the network link to the output.
 
 #### running locally (not recommended)
 

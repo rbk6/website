@@ -6,6 +6,11 @@ WORKDIR /website
 COPY package*.json ./
 RUN npm install
 
+# test stage
+FROM base AS test
+COPY . . 
+CMD ["npm", "test"]
+
 # development stage
 FROM base AS development
 COPY . .
