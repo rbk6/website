@@ -5,10 +5,4 @@ services:
     image: website:latest
     volumes:
       - /dist/:/var/www/rbk6.dev/public/
-    networks:
-      - webnet
     restart: always
-
-networks:
-  webnet:
-    driver: bridge
