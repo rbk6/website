@@ -1,12 +1,18 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Home from "./components/Home";
+import About from "./components/About";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
-    <>
-      <div>
-        <h1>howdy planet</h1>
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
 }
 
