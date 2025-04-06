@@ -1,5 +1,5 @@
 # base stage
-FROM node:18-alpine AS base
+FROM node:22-alpine AS base
 WORKDIR /website
 
 # install dependencies
@@ -8,7 +8,7 @@ RUN npm install
 
 # test stage
 FROM base AS test
-COPY . . 
+COPY . .
 CMD ["npm", "test"]
 
 # development stage
@@ -20,4 +20,7 @@ CMD ["npm", "run", "dev"]
 # production stage
 FROM base AS build
 COPY . .
+RUN npm install -g serve
 RUN npm run build
+CMD ["serve", "-s", "dist", "-l", "443"]
+EXPOSE 443
