@@ -20,13 +20,10 @@
 
 body {
 	visibility: hidden;
-	opacity: 0;
-	transition: opacity 3s ease-in-out;
 }
 
 body.loaded {
 	visibility: visible;
-	opacity: 1;
 }
 
 :root {
