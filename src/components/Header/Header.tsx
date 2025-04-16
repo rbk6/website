@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './Header.scss';
 import { Circle, Layer, Stage } from 'react-konva';
 import { useState } from 'react';
+import refreshIcon from '../../assets/icons/refresh.svg';
 
 function Header() {
 	interface Tab {
@@ -57,7 +58,7 @@ function Header() {
 						<button>←</button>
 						<button disabled>→</button>
 						<button>
-							<img src="../src/assets/icons/refresh.svg" />
+							<img src={refreshIcon} />
 						</button>
 					</div>
 					<input disabled value={`https://rbk6.dev${location.pathname}`} className="bar"></input>
