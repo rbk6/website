@@ -9,5 +9,12 @@ export default defineConfig({
 		host: '0.0.0.0',
 		strictPort: true,
 	},
+	css: {
+		preprocessorOptions: {
+			scss: {
+				additionalData: `@use "/src/styles/variables" as *;`, // global import
+			},
+		},
+	},
 	base: './',
 });

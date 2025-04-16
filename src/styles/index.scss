@@ -1,0 +1,41 @@
+@use './variables';
+
+@font-face {
+	font-family: 'Rbk6-Regular';
+	src:
+		url('../assets/fonts/Rbk6-Regular.woff2') format('woff2'),
+		url('../assets/fonts/Rbk6-Regular.woff2') format('woff2'),
+		url('../assets/fonts/Rbk6-Regular.woff') format('woff'),
+		url('../assets/fonts/Rbk6-Regular.ttf') format('truetype'),
+		url('../assets/fonts/Rbk6-Regular.eot') format('embedded-opentype'),
+		url('../assets/fonts/Rbk6-Regular.svg#Rbk6-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+* {
+	font-family: $font-family-base;
+}
+
+body {
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 3s ease-in-out;
+}
+
+body.loaded {
+	visibility: visible;
+	opacity: 1;
+}
+
+:root {
+	color-scheme: light dark;
+	color: $color-text-primary;
+	background-color: $color-bg-dark;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
