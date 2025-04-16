@@ -28,6 +28,7 @@ function Header() {
 		},
 	];
 
+	// @ts-ignore
 	const [tabs, setTabs] = useState<Array<Tab>>(initialTabs);
 	const location = useLocation();
 
