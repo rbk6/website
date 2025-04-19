@@ -24,6 +24,12 @@ body {
 
 body.loaded {
 	visibility: visible;
+	min-height: 100vh;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
 }
 
 :root {
@@ -35,4 +41,12 @@ body.loaded {
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+// reset button styling
+button {
+	all: unset;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 }
