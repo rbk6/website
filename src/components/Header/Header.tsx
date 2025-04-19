@@ -98,7 +98,7 @@ function Header() {
 					</div>
 					<input
 						disabled
-						value={location.pathname != '/new%20tab' ? `https://rbk6.dev${location.pathname}` : ''}
+						value={location.pathname != '/new' ? `https://rbk6.dev${location.pathname}` : ''}
 						className="bar"
 					></input>
 					<div className="side-btns right">
