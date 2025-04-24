@@ -4,6 +4,22 @@
 	background-color: #333;
 }
 
+.btn {
+	color: #888;
+	font-size: 18px;
+
+	display: flex;
+	justify-content: center;
+
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	&:hover:not(.disabled) {
+		background-color: #444;
+	}
+}
+
 .left {
 	width: 10%;
 	display: flex;
@@ -11,12 +27,18 @@
 
 	.btn {
 		width: 32px;
-		height: 32px;
 		margin: 0 2px;
 		border-radius: 50%;
 
-		&:hover {
-			background-color: #444;
+		&.refresh {
+			filter: opacity(0.6);
+			padding-top: 8px;
+			height: 24px;
+		}
+
+		img {
+			width: 16px;
+			height: 16px;
 		}
 	}
 }
@@ -45,9 +67,5 @@
 		height: 32px;
 		margin-right: 12px;
 		border-radius: 50%;
-
-		&:hover {
-			background-color: #444;
-		}
 	}
 }
