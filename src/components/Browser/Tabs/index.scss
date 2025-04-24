@@ -1,0 +1,49 @@
+.tabs {
+	display: flex;
+	padding: 12px 12px 0 12px;
+	background-color: #222;
+}
+
+.tab {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 12px;
+	background-color: #333;
+	border-radius: 12px 12px 0 0;
+	width: 200px;
+}
+
+.title {
+	color: #bbb;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.controls {
+	margin-left: auto;
+	display: flex;
+	gap: 6px;
+
+	.btn {
+		width: 18px;
+		height: 18px;
+		border-radius: 50%;
+
+		&.maximize {
+			background: #3ad063;
+		}
+		&.minimize {
+			background: #f4c542;
+		}
+		&.close {
+			background: #f45b5b;
+		}
+
+		transition: filter 0.2s ease;
+		&:hover {
+			filter: brightness(75%);
+		}
+	}
+}

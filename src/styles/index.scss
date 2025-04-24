@@ -1,5 +1,40 @@
 @use './variables';
 
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+
+	background: radial-gradient(rgb(255, 255, 255), rgb(136, 15, 235), rgb(91, 176, 224));
+}
+
+.content div {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 64px 0 auto 0;
+
+	h1 {
+		width: 75%;
+		margin: 0;
+	}
+
+	hr {
+		border: 0;
+		width: 60%;
+		margin-right: 27.5%;
+		background-color: #333;
+		height: 2px;
+	}
+
+	p {
+		width: 75%;
+	}
+}
+
 @font-face {
 	font-family: 'Rbk6-Regular';
 	src:
@@ -16,37 +51,4 @@
 
 * {
 	font-family: $font-family-base;
-}
-
-body {
-	visibility: hidden;
-}
-
-body.loaded {
-	visibility: visible;
-	min-height: 100vh;
-	margin: 0;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	box-sizing: border-box;
-}
-
-:root {
-	color-scheme: light dark;
-	color: $color-text-primary;
-	background-color: $color-bg-dark;
-
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-// reset button styling
-button {
-	all: unset;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
 }

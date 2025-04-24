@@ -1,0 +1,15 @@
+.browser {
+	display: flex;
+	flex-direction: column;
+	width: 1300px;
+	height: 1100px;
+	background-color: #c5c5df;
+	position: relative;
+}
+
+.content {
+	flex: 1;
+	width: 100%;
+	overflow-y: auto;
+	background-color: #ccc;
+}
