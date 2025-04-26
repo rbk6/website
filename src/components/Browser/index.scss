@@ -1,37 +1,36 @@
 .browser {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
-	max-width: 1300px;
-	height: 100%;
-	max-height: 1100px;
-	min-width: 300px;
-	background-color: #c5c5df;
 	position: relative;
-	margin: 92px auto auto auto;
-	border-radius: 10px;
+	margin: 92px auto auto;
 	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #c5c5df;
+	border-radius: 10px;
 	transition:
 		margin 100ms ease-in-out,
 		max-height 250ms ease-in-out;
+	max-height: 1100px;
+	max-width: 1300px;
+	min-width: 300px;
 
-	@media (max-width: 768px) {
-		max-width: 100%;
-		max-height: 100%;
-		border-radius: 0;
+	@media (width <= 768px) {
 		margin: 0;
+		border-radius: 0;
+		max-height: 100%;
+		max-width: 100%;
 	}
 }
 
 .content {
-	overflow-x: hidden;
-	overflow-y: auto;
+	overflow: hidden auto;
 }
 
 html,
 body,
 #root {
-	height: 100%;
 	margin: 0;
 	padding: 0;
+	height: 100%;
 }

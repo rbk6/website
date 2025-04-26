@@ -4,10 +4,9 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
 	margin: 0;
-
-	background: radial-gradient(rgb(255, 255, 255), rgb(136, 15, 235), rgb(91, 176, 224));
+	height: 100vh;
+	background: radial-gradient(rgb(255 255 255), rgb(136 15 235), rgb(91 176 224));
 }
 
 .content div {
@@ -18,16 +17,16 @@ body {
 	margin: 32px 0;
 
 	h1 {
-		width: 75%;
 		margin: 0;
+		width: 75%;
 	}
 
 	hr {
-		border: 0;
 		width: 60%;
-		margin-right: 27.5%;
-		background-color: #333;
 		height: 2px;
+		background-color: #333;
+		border: 0;
+		margin-right: 27.5%;
 	}
 
 	p {
@@ -36,7 +35,10 @@ body {
 }
 
 @font-face {
+	font-weight: normal;
+	font-display: block;
 	font-family: 'Rbk6-Regular';
+	font-style: normal;
 	src:
 		url('../assets/fonts/Rbk6-Regular.woff2') format('woff2'),
 		url('../assets/fonts/Rbk6-Regular.woff2') format('woff2'),
@@ -44,9 +46,6 @@ body {
 		url('../assets/fonts/Rbk6-Regular.ttf') format('truetype'),
 		url('../assets/fonts/Rbk6-Regular.eot') format('embedded-opentype'),
 		url('../assets/fonts/Rbk6-Regular.svg#Rbk6-Regular') format('svg');
-	font-weight: normal;
-	font-style: normal;
-	font-display: block;
 }
 
 * {
