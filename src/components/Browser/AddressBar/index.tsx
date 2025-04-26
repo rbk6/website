@@ -6,7 +6,7 @@ interface Props {
 }
 
 function AddressBar({ path }: Props) {
-	const url = `localhost:3000${path === '/' ? '' : path}`;
+	const url = `https://rbk6.dev${path === '/' ? '' : path}`;
 
 	return (
 		<div className="address-bar">

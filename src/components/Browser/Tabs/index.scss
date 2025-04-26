@@ -8,15 +8,34 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	margin: 0 8px;
 	padding: 12px;
 	width: 200px;
-	background-color: #333;
 	border-radius: 12px 12px 0 0;
+	min-width: 0;
+
+	&.active {
+		background-color: #333;
+	}
+
+	&.inactive {
+		margin: 0 0 8px;
+		padding: 8px 12px;
+		border-radius: 8px;
+		transition: background-color 100ms ease-in-out;
+
+		&:hover {
+			background-color: #444;
+		}
+	}
 }
 
 .title {
 	color: #bbb;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	user-select: none;
+	white-space: nowrap;
 }
 
 .controls {
@@ -31,6 +50,7 @@
 
 		&.maximize {
 			background: #3ad063;
+			margin-left: 24px;
 		}
 
 		&.minimize {

@@ -1,8 +1,6 @@
 import { Outlet, useLocation } from 'react-router-dom';
 import './index.scss';
-import Tabs from './Tabs';
-import AddressBar from './AddressBar';
-import Bookmarks from './Bookmarks';
+import Top from './Top';
 
 function Browser() {
 	const location = useLocation();
@@ -10,9 +8,7 @@ function Browser() {
 
 	return (
 		<div className="browser">
-			<Tabs path={path} />
-			<AddressBar path={path} />
-			<Bookmarks />
+			<Top path={path} />
 			<main className="content">
 				<Outlet />
 			</main>

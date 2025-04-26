@@ -3,6 +3,7 @@
 	align-items: center;
 	padding: 12px 0;
 	background-color: #333;
+	border-radius: 12px 12px 0 0;
 }
 
 .btn {
@@ -83,6 +84,6 @@
 	}
 }
 
-.btn:hover:not(.disabled) {
+.address-bar .btn:hover:not(.disabled) {
 	background-color: #444;
 }
