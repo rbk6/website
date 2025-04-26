@@ -6,12 +6,12 @@ import Bookmarks from './Bookmarks';
 
 function Browser() {
 	const location = useLocation();
-	const activeTab = location.pathname == '/' ? '' : location.pathname;
+	const path = location.pathname;
 
 	return (
 		<div className="browser">
-			<Tabs activeTab={activeTab} />
-			<AddressBar activeTab={activeTab} />
+			<Tabs path={path} />
+			<AddressBar path={path} />
 			<Bookmarks />
 			<main className="content">
 				<Outlet />

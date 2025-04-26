@@ -2,10 +2,12 @@ import refreshIcon from '../../../assets/icons/refresh.svg';
 import './index.scss';
 
 interface Props {
-	activeTab: string;
+	path: string;
 }
 
-function AddressBar({ activeTab }: Props) {
+function AddressBar({ path }: Props) {
+	const url = `localhost:3000${path === '/' ? '' : path}`;
+
 	return (
 		<div className="address-bar">
 			<div className="left">
@@ -16,7 +18,7 @@ function AddressBar({ activeTab }: Props) {
 				</div>
 			</div>
 			<div className="address">
-				<div className="link">localhost:3000{activeTab}</div>
+				<div className="link">{url}</div>
 			</div>
 			<div className="right">
 				<div className="disabled extensions btn" />
