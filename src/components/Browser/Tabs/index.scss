@@ -8,8 +8,8 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 0 8px;
-	padding: 12px;
+	margin: 0 4px;
+	padding: 4px 12px 12px;
 	width: 200px;
 	border-radius: 12px 12px 0 0;
 	min-width: 0;
@@ -19,13 +19,35 @@
 	}
 
 	&.inactive {
-		margin: 0 0 8px;
+		margin: 0 4px 8px;
 		padding: 8px 12px;
 		border-radius: 8px;
 		transition: background-color 100ms ease-in-out;
 
 		&:hover {
 			background-color: #444;
+		}
+	}
+
+	.close-btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0;
+		width: 20px;
+		height: 20px;
+		font: inherit;
+		color: inherit;
+		color: #eee;
+		background: none;
+		border: none;
+		border-radius: 50%;
+		max-width: 20px;
+		min-width: 20px;
+		outline: inherit;
+
+		&:hover {
+			background-color: #666;
 		}
 	}
 }
