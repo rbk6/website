@@ -16,7 +16,7 @@ function AddressBar({ activeTab }: Props) {
 				</div>
 			</div>
 			<div className="address">
-				<span className="link">localhost:3000{activeTab}</span>
+				<div className="link">localhost:3000{activeTab}</div>
 			</div>
 			<div className="right">
 				<div className="disabled extensions btn" />

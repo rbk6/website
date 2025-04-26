@@ -2,6 +2,7 @@
 	display: flex;
 	padding: 12px 0;
 	background-color: #333;
+	align-items: center;
 }
 
 .btn {
@@ -10,6 +11,7 @@
 
 	display: flex;
 	justify-content: center;
+	flex-shrink: 0;
 
 	-webkit-user-select: none;
 	-ms-user-select: none;
@@ -21,19 +23,29 @@
 }
 
 .left {
-	width: 10%;
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
+	transition: width 200ms ease-in-out;
 
 	.btn {
-		width: 32px;
+		width: 40px;
 		margin: 0 2px;
 		border-radius: 50%;
 
+		&.back,
+		&.forward {
+			height: 36px;
+			padding-top: 4px;
+		}
+
 		&.refresh {
 			filter: opacity(0.6);
-			padding-top: 8px;
-			height: 24px;
+			padding-top: 12px;
+			height: 28px;
+		}
+
+		&.back {
+			margin-left: 12px;
 		}
 
 		img {
@@ -44,21 +56,30 @@
 }
 
 .address {
-	width: 80%;
-	padding: 0;
-	margin: 0 auto;
+	flex: 1;
 	display: flex;
 	align-items: center;
+	width: 36px;
+	height: 36px;
+	margin: 0 12px;
+	padding: 0;
 	border-radius: 24px;
 	background-color: #888;
+	min-width: 0;
+	transition: margin 100ms ease-in-out;
 
 	.link {
-		padding-left: 24px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin: 0;
+		padding: 0;
+		display: block;
+		margin: 0 24px;
 	}
 }
 
 .right {
-	width: 10%;
 	display: flex;
 	justify-content: flex-end;
 
