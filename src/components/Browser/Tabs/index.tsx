@@ -16,20 +16,27 @@ function Tabs({ path }: Props) {
 
 	return (
 		<div className="tabs">
-			{tabs.map((tab, index) => (
-				<div
-					key={index}
-					className={`tab ${path === tab.path ? 'active' : 'inactive'}`}
-					title={`https://rbk6.dev${tab.path}`}
-				>
-					<span className="title">{tab.path == '/' ? 'home' : tab.path.substring(1)}</span>
-					<button className="close-btn">x</button>
+			<div className="tabs-left">
+				{tabs.map((tab, index) => (
+					<div
+						key={index}
+						className={`tab ${path === tab.path ? 'active' : 'inactive'}`}
+						title={`https://rbk6.dev${tab.path}`}
+					>
+						<span className="title">{tab.path == '/' ? 'home' : tab.path.substring(1)}</span>
+						<button className="close-tab-btn">x</button>
+					</div>
+				))}
+				<div className="new-tab">
+					<button className="new-tab-btn">+</button>
 				</div>
-			))}
-			<div className="controls">
-				<div className="maximize btn" />
-				<div className="minimize btn" />
-				<div className="close btn" />
+			</div>
+			<div className="tabs-right">
+				<div className="controls">
+					<div className="maximize btn" />
+					<div className="minimize btn" />
+					<div className="close btn" />
+				</div>
 			</div>
 		</div>
 	);
