@@ -24,6 +24,33 @@
 	}
 }
 
+.error {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 15%;
+	left: 25%;
+	padding: 0;
+	width: 50vw;
+	height: 25%;
+	background-color: #c5c5df;
+	border-radius: 10px;
+	transition:
+		margin 100ms ease-in-out,
+		max-height 100ms ease-in-out;
+	max-height: 1100px;
+	max-width: 1300px;
+	min-width: 300px;
+
+	@media (width <= 768px) {
+		margin: 0;
+		width: 100vw;
+		border-radius: 0;
+		max-height: 100%;
+		max-width: 100%;
+	}
+}
+
 .content {
 	overflow: hidden auto;
 }

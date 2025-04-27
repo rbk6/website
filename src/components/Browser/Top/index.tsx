@@ -3,11 +3,15 @@ import AddressBar from '../AddressBar';
 import Bookmarks from '../Bookmarks';
 import Tabs from '../Tabs';
 
-function Top() {
+interface Props {
+	path: string;
+}
+
+function Top({ path }: Props) {
 	return (
 		<div className="top">
 			<Tabs />
-			<AddressBar />
+			<AddressBar path={path} />
 			<Bookmarks />
 		</div>
 	);
