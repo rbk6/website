@@ -1,4 +1,7 @@
+import useTitle from '../../lib/useTitle';
+
 function NotFound() {
+	useTitle('not found');
 	return (
 		<div>
 			<h1>404</h1>

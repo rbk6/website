@@ -1,12 +1,11 @@
+import { useLocation } from 'react-router-dom';
 import refreshIcon from '../../../assets/icons/refresh.svg';
 import './index.scss';
 
-interface Props {
-	path: string;
-}
-
-function AddressBar({ path }: Props) {
-	const url = `https://rbk6.dev${path === '/' ? '' : path}`;
+function AddressBar() {
+	const location = useLocation();
+	const path = location.pathname;
+	const url = path === '/new' ? '' : `https://rbk6.dev${path === '/' ? '' : path}`;
 
 	return (
 		<div className="address-bar">
