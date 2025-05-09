@@ -27,7 +27,7 @@
 .tabs-right {
 	display: flex;
 	justify-content: flex-end;
-	padding: 0 1em 0 1em;
+	padding: 0 1em;
 }
 
 .close-tab-btn {
@@ -119,13 +119,13 @@
 		&::before,
 		&::after {
 			position: absolute;
+			top: 1.25em;
 			width: 0.5em;
 			height: 0.75em;
 			background-color: #333;
-			content: '';
-			top: 1.25em;
-			z-index: 1;
 			border-radius: 0;
+			content: '';
+			z-index: 1;
 		}
 
 		&::before {
@@ -154,25 +154,20 @@
 			z-index: 3;
 		}
 
-		&.left:hover::before,
-		&.right:hover::before {
-			background-color: #444;
-		}
-
 		&.left::before,
 		&.right::before {
 			position: absolute;
 			width: 0.55em;
 			height: 0.55em;
+			background-color: #222;
 			content: '';
 			z-index: 4;
-			background-color: #222;
 		}
 
 		&.left::before {
 			top: 1.12em;
 			left: calc(100% - 0.55em);
-			border-radius: 0 0 6px 0;
+			border-radius: 0 0 6px;
 		}
 
 		&.right::before {
@@ -194,7 +189,7 @@
 		&.left::after {
 			top: 1.25em;
 			left: calc(100% - 0.18em);
-			border-radius: 0 0 6px 0;
+			border-radius: 0 0 6px;
 		}
 
 		&.right::after {
@@ -205,6 +200,11 @@
 
 		.close-tab-btn {
 			margin: 3px 0 3px auto;
+		}
+
+		&.left:hover::before,
+		&.right:hover::before {
+			background-color: #444;
 		}
 
 		&:hover {
