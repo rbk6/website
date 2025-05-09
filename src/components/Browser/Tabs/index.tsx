@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 interface Props {
 	isMax: boolean;
 	setIsMax: (val: boolean) => void;
+	isClosed: boolean;
+	setIsClosed: (val: boolean) => void;
 }
 
 interface Tab {
@@ -12,7 +14,7 @@ interface Tab {
 	key?: string;
 }
 
-function Tabs({ isMax, setIsMax }: Props) {
+function Tabs({ isMax, setIsMax, isClosed, setIsClosed }: Props) {
 	const defaultTabs: Tab[] = [{ path: '/' }, { path: '/about' }];
 	const [selectedTab, setSelectedTab] = useState<Tab>(defaultTabs[0]);
 	const [tabs, setTabs] = useState<Tab[]>(defaultTabs);
@@ -35,6 +37,9 @@ function Tabs({ isMax, setIsMax }: Props) {
 	};
 
 	const closeTab = (curr: Tab) => {
+		if (tabs.length === 1) {
+			setIsClosed(true);
+		}
 		const newTabs = tabs.filter((t) => (curr.key ? t.key !== curr.key : t.path !== curr.path));
 		setTabs(newTabs);
 		if (curr.key === selectedTab.key || curr.path === selectedTab.path) setSelectedTab({ path: '' });
@@ -98,7 +103,12 @@ function Tabs({ isMax, setIsMax }: Props) {
 						}}
 					/>
 					<div className="minimize btn" />
-					<div className="close btn" />
+					<div
+						className="close btn"
+						onClick={() => {
+							setIsClosed(!isClosed);
+						}}
+					/>
 				</div>
 			</div>
 		</div>

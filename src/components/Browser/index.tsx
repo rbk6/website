@@ -5,19 +5,26 @@ import { useState } from 'react';
 
 function Browser() {
 	const [isMax, setIsMax] = useState<boolean>(false);
+	const [isClosed, setIsClosed] = useState<boolean>(false);
 
 	const location = useLocation();
 	const path = location.pathname;
 
-	return path !== '/404' ? (
+	if (isClosed) return <></>;
+
+	if (path === '/404') {
+		return (
+			<div className="error">
+				<main className="content">
+					<Outlet />
+				</main>
+			</div>
+		);
+	}
+
+	return (
 		<div className={`browser${isMax ? ' maximized' : ''}`}>
-			<Top path={path} isMax={isMax} setIsMax={setIsMax} />
-			<main className="content">
-				<Outlet />
-			</main>
-		</div>
-	) : (
-		<div className="error">
+			<Top path={path} isMax={isMax} setIsMax={setIsMax} isClosed={isClosed} setIsClosed={setIsClosed} />
 			<main className="content">
 				<Outlet />
 			</main>
