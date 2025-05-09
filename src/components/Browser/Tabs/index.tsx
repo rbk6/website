@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './index.scss';
 import { useNavigate } from 'react-router-dom';
 
@@ -30,16 +30,9 @@ function Tabs() {
 	};
 
 	const closeTab = (curr: Tab) => {
-		const currentIndex = tabs.indexOf(curr);
-		if (curr.key === undefined) {
-			setTabs(tabs.filter((tab) => tab.path !== curr.path));
-		} else {
-			setTabs(tabs.filter((tab) => tab.key !== curr.key));
-		}
-
-		if (currentIndex >= tabs.length) {
-			selectTab(tabs[tabs.length - 1]);
-		}
+		const newTabs = tabs.filter((t) => (curr.key ? t.key !== curr.key : t.path !== curr.path));
+		setTabs(newTabs);
+		if (curr.key === selectedTab.key || curr.path === selectedTab.path) setSelectedTab({ path: '' });
 	};
 
 	const isAdjacent = (tab: Tab): string => {
@@ -50,6 +43,18 @@ function Tabs() {
 		return currentIndex === selectedIndex - 1 ? ' left' : currentIndex === selectedIndex + 1 ? ' right' : '';
 	};
 
+	useEffect(() => {
+		const stillExists = tabs.some((t) =>
+			selectedTab.key !== undefined ? t.key === selectedTab.key : t.path === selectedTab.path,
+		);
+
+		if (!stillExists && tabs.length > 0) {
+			const fallback = tabs[tabs.length - 1];
+			setSelectedTab(fallback);
+			navigate(fallback.path);
+		}
+	}, [tabs]);
+
 	return (
 		<div className="tabs">
 			<div className="tabs-left">
@@ -59,7 +64,7 @@ function Tabs() {
 						{tabs.map((tab, index) => (
 							<div
 								key={index}
-								className={`tab ${tab === selectedTab ? 'active' : 'inactive'}${index == 0 ? ' first' : index == tabs.length - 1 ? ' last' : ''}${isAdjacent(tab)}`}
+								className={`tab ${tab === selectedTab ? 'active' : 'inactive'}${index == 0 ? ' first' : ''}${index == tabs.length - 1 ? ' last' : ''}${isAdjacent(tab)}`}
 								title={tab.key === undefined ? `https://rbk6.dev${tab.path}` : 'new tab'}
 								onClick={() => selectTab(tab)}
 							>
