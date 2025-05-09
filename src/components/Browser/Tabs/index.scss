@@ -19,31 +19,25 @@
 		overflow: hidden;
 	}
 
-	@media (width <= 768px) {
-		width: 70%;
+	@media (width < 768px) {
+		width: 75%;
 	}
 }
 
 .tabs-right {
 	display: flex;
 	justify-content: flex-end;
-	padding: 0 12px;
-	width: 10%;
-	margin-left: auto;
-
-	@media (width <= 768px) {
-		width: auto;
-	}
+	padding: 0 1em 0 1em;
 }
 
 .close-tab-btn {
-	margin: 3px;
-	width: 20px;
-	height: 20px;
+	padding: 0 0 3px !important;
+	width: 18px;
+	height: 18px;
 	align-self: center;
 	margin-left: auto;
-	max-width: 20px;
-	min-width: 20px;
+	max-width: 18px;
+	min-width: 18px;
 }
 
 .new-tab {
@@ -125,27 +119,25 @@
 		&::before,
 		&::after {
 			position: absolute;
-			width: 1em;
-			height: 1em;
+			width: 0.5em;
+			height: 0.75em;
 			background-color: #333;
 			content: '';
+			top: 1.25em;
 			z-index: 1;
+			border-radius: 0;
 		}
 
 		&::before {
-			top: 1em;
-			left: calc(0% - 1em);
-			border-radius: 0;
+			left: calc(0% - 0.5em);
 		}
 
 		&::after {
-			top: 1em;
 			left: 100%;
-			border-radius: 0;
 		}
 
 		.close-tab-btn {
-			margin: 0 0 6px auto;
+			margin: 0 0 5px auto;
 		}
 	}
 
@@ -154,7 +146,6 @@
 		padding: 0 8px;
 		height: 27px;
 		border-radius: 6px;
-		transition: background-color 100ms ease-in-out;
 		align-self: flex-end;
 		margin-bottom: auto;
 
@@ -163,53 +154,53 @@
 			z-index: 3;
 		}
 
-		&.left::before,
-		&.right::before {
-			position: absolute;
-			width: 0.64em;
-			height: 0.69em;
-			transition: background-color 100ms ease-in-out;
-			content: '';
-			z-index: 4;
-		}
-
-		&.left::before {
-			top: 1em;
-			left: calc(100% - 0.64em);
-			border-radius: 0 0 75%;
-		}
-
-		&.right::before {
-			top: 1em;
-			left: calc(0% + 0em);
-			border-radius: 0 0 0 75%;
-		}
-
-		&.left::after,
-		&.right::after {
-			position: absolute;
-			width: 1em;
-			height: 1em;
-			background-color: #222;
-			content: '';
-			z-index: 3;
-		}
-
 		&.left:hover::before,
 		&.right:hover::before {
 			background-color: #444;
 		}
 
+		&.left::before,
+		&.right::before {
+			position: absolute;
+			width: 0.55em;
+			height: 0.55em;
+			content: '';
+			z-index: 4;
+			background-color: #222;
+		}
+
+		&.left::before {
+			top: 1.12em;
+			left: calc(100% - 0.55em);
+			border-radius: 0 0 6px 0;
+		}
+
+		&.right::before {
+			top: 1.12em;
+			left: calc(0% - 0em);
+			border-radius: 0 0 0 6px;
+		}
+
+		&.left::after,
+		&.right::after {
+			position: absolute;
+			width: 0.55em;
+			height: 0.75em;
+			background-color: #222;
+			content: '';
+			z-index: 3;
+		}
+
 		&.left::after {
-			top: 1em;
-			left: calc(100% - 0.63em);
-			border-radius: 0 0 75%;
+			top: 1.25em;
+			left: calc(100% - 0.18em);
+			border-radius: 0 0 6px 0;
 		}
 
 		&.right::after {
-			top: 1em;
+			top: 1.25em;
 			left: calc(0% - 0.37em);
-			border-radius: 0 0 0 75%;
+			border-radius: 0 0 0 6px;
 		}
 
 		.close-tab-btn {
@@ -228,7 +219,7 @@
 	width: 1em;
 	height: 1em;
 	background: #222;
-	border-radius: 0 0 75%;
+	border-radius: 0 0 6px;
 	align-self: flex-end;
 	z-index: 3;
 }
@@ -237,7 +228,7 @@
 	top: 1em;
 	left: calc(100% - 1em);
 	width: 1em;
-	border-radius: 0 0 0 75%;
+	border-radius: 0 0 0 6px;
 	content: '';
 	z-index: 1;
 }
