@@ -2,12 +2,17 @@ import { useEffect, useState } from 'react';
 import './index.scss';
 import { useNavigate } from 'react-router-dom';
 
+interface Props {
+	isMax: boolean;
+	setIsMax: (val: boolean) => void;
+}
+
 interface Tab {
 	path: string;
 	key?: string;
 }
 
-function Tabs() {
+function Tabs({ isMax, setIsMax }: Props) {
 	const defaultTabs: Tab[] = [{ path: '/' }, { path: '/about' }];
 	const [selectedTab, setSelectedTab] = useState<Tab>(defaultTabs[0]);
 	const [tabs, setTabs] = useState<Tab[]>(defaultTabs);
@@ -53,7 +58,7 @@ function Tabs() {
 			setSelectedTab(fallback);
 			navigate(fallback.path);
 		}
-	}, [tabs]);
+	}, [tabs, navigate, selectedTab]);
 
 	return (
 		<div className="tabs">
@@ -86,7 +91,12 @@ function Tabs() {
 			</div>
 			<div className="tabs-right">
 				<div className="controls">
-					<div className="maximize btn" />
+					<div
+						className="maximize btn"
+						onClick={() => {
+							setIsMax(!isMax);
+						}}
+					/>
 					<div className="minimize btn" />
 					<div className="close btn" />
 				</div>
