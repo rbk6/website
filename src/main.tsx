@@ -1,14 +1,13 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import './styles/index.scss';
 import App from './App.tsx';
-
-window.addEventListener('load', () => {
-	document.body.classList.add('loaded');
-});
+import { ThemeProvider } from './context/ThemeContext.tsx';
+import './styles/main.scss';
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
-		<App />
+		<ThemeProvider>
+			<App />
+		</ThemeProvider>
 	</StrictMode>,
 );

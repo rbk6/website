@@ -1,0 +1,50 @@
+@use 'sass:map';
+
+$breakpoints: (
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px,
+);
+
+$container-max-widths: (
+	md: 720px,
+	lg: 960px,
+	xl: 1140px,
+	xxl: 1320px,
+);
+
+$space-unit: 1rem;
+
+/* helps write media queries based on named breakpoints */
+@mixin respond($breakpoint) {
+	@if map.has-key($breakpoints, $breakpoint) {
+		@media (min-width: map.get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	} @else {
+		@warn "No breakpoint found for `#{$breakpoint}`";
+	}
+}
+
+/* creates a responsive container with max-widths that change at different breakpoints */
+@mixin container {
+	width: 100%;
+	margin-inline: auto;
+	padding-inline: $space-unit * 2;
+	max-width: map.get($container-max-widths, xl);
+
+	@include respond(md) {
+		max-width: map.get($container-max-widths, md);
+	}
+	@include respond(lg) {
+		max-width: map.get($container-max-widths, lg);
+	}
+	@include respond(xl) {
+		max-width: map.get($container-max-widths, xl);
+	}
+	@include respond(xxl) {
+		max-width: map.get($container-max-widths, xxl);
+	}
+}

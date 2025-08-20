@@ -1,24 +1,15 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import NotFound from './pages/NotFound';
-import Browser from './components/Browser';
-import NewTab from './pages/NewTab';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import LandingPage from './pages/LandingPage/LandingPage';
 
-function App() {
+const App: React.FC = () => {
 	return (
 		<Router>
 			<Routes>
-				<Route path="/" element={<Browser />}>
-					<Route index element={<Home />} />
-					<Route path="/about" element={<About />} />
-					<Route path="/new" element={<NewTab />} />
-					<Route path="/404" element={<NotFound />} />
-					<Route path="*" element={<Navigate to="/404" replace />} />
-				</Route>
+				<Route path="/" element={<LandingPage />} />
+				<Route path="*" element={<Navigate to="/" replace />} />
 			</Routes>
 		</Router>
 	);
-}
+};
 
 export default App;

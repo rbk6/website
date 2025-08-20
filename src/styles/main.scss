@@ -1,0 +1,88 @@
+@use 'sass:map';
+@use './mixins' as *;
+
+$themes: (
+	light: (
+		text: #120123,
+		background: #f4ecfe,
+		primary: #421971,
+		secondary: #f66f71,
+		accent: #fa7942,
+	),
+	dark: (
+		text: #eddcfe,
+		background: #090113,
+		primary: #b78ee6,
+		secondary: #90090b,
+		accent: #bd3c05,
+	),
+);
+
+.light {
+	@each $key, $value in map.get($themes, light) {
+		--#{$key}: #{$value};
+	}
+}
+.dark {
+	@each $key, $value in map.get($themes, dark) {
+		--#{$key}: #{$value};
+	}
+}
+
+main {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	@include container;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: system-ui, sans-serif;
+	line-height: 1.5;
+	color: var(--text);
+	background-color: var(--background);
+
+	transition:
+		background 0.3s ease-in-out,
+		color 0.3s ease-in-out;
+}
+
+h1 {
+	font-size: clamp(1.75rem, 2vw + 1rem, 2.5rem);
+}
+
+h2 {
+	font-size: clamp(1.5rem, 1.5vw + 0.75rem, 2rem);
+}
+
+%button-reset {
+	background: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	text-align: center;
+	box-sizing: border-box;
+}
+
+::selection {
+	background-color: var(--accent);
+	color: var(--background);
+}
+
+::-moz-selection {
+	background-color: var(--accent);
+	color: var(--background);
+}
