@@ -13,7 +13,7 @@ jobs:
         run: |
           RESPONSE=$(curl -s -w "%{http_code}" -o response.json -X POST \
             -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: Bearer ${{ secrets.DEPLOY_TOKEN }}" \
+            -H "Authorization: token ${{ secrets.DEPLOY_TOKEN }}" \
             -d '{"event_type": "deploy", "client_payload": {"ref": "master"}}' \
             https://api.github.com/repos/rbk6/pipeline/dispatches)
 
